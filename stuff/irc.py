@@ -10,10 +10,6 @@ class irc:
 			self.sock.send(data.replace('PING', 'PONG'))
 			return 1
 	
-	def check_for_message(self, data):
-		if (re.match(r'^:[a-zA-Z0-9_]+\![a-zA-Z0-9_]+@[a-zA-Z0-9_]+(\.tmi\.twitch\.tv|\.testserver\.local) PRIVMSG #[a-zA-Z0-9_]+ :.+$', data)):
-			return 1
-	
 	def set_socket_object(self):
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.sock = sock
